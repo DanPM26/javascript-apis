@@ -1,4 +1,69 @@
 //-----------------Promesas-----------------------
+const count = true;
+
+let countValue = new Promise(function (resolve, reject) {
+    if (count) {
+        resolve("There is a count value.");
+    } else {
+        reject("There is no count value");
+    }
+});
+
+console.log(countValue);
+// ---------------
+
+var promise = new Promise(function(resolve, reject) {
+    const x = "geeksforgeeks";
+    const y = "geeksforgeeks"
+    if(x === y) {
+    resolve();
+    } else {
+    reject();
+    }
+    });
+    
+    promise.then(function () {
+    console.log('Excelente, eres un GEEK a mucha honra');
+    }).catch(function () {
+    console.log('Algún error ha ocurrido');
+    });
+// ---------------
+    //  const imprimiren2seg = (saludo,valor) => {
+    //      return new Promise(resolve => {
+    //        setTimeout(() => {
+    //          console.log(saludo,valor);
+    //          resolve();
+    //        },2000)
+    //      })
+    //    }
+    //    imprimiren2seg("hola mundo",2)
+    //    .then(() => imprimiren2seg("hola mundo",3))
+    //    .then(() => imprimiren2seg("hola mundo",4))
+
+//-------------
+ let success = true;
+ function getUsers() {
+   return new Promise((resolve, reject) => {
+     setTimeout(() => {
+       if (success) {
+         resolve([
+           { username: 'john', email: 'john@test.com' },
+           { username: 'jane', email: 'jane@test.com' },
+         ]);
+       } else {
+         reject('Failed to the user list');
+       }
+     }, 1000);
+   });
+ }
+ function onFulfilled(users) {
+   console.log(users);
+ }
+ function onRejected(error) {
+   console.log(error);
+ }
+ const promise = getUsers();
+ promise.then(onFulfilled, onRejected);
  
 
 //------------------Async/await------------------------------
