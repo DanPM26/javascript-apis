@@ -59,27 +59,25 @@
 //----------------------Chart.js-------------------------
 
 
-// const ctx = document.getElementById('myChart');
+ const ctx = document.getElementById('myChart');
+ const data = [
+  {"id":1,"cancion":"Sin miedo","artista":"La Garfield", "año":2013,"escuchas":14263},
+  {"id":2,"cancion":"La Santa","artista":"Bad Bunny", "año":2019, "escuchas":149263},
+  {"id":3,"cancion":"Bags","artista":"Clairo","año":2019, "escuchas":130263},
+  {"id":5,"cancion":"Hallucinate","artista":"Dua Lipa","año":2020, "escuchas":163263},
+  {"id":6,"cancion":"Serotonin","artista":"Girl in Red","año":2018,"escuchas":560262}
+ ];
 
-// const data = [
-//   { year: 2010, count: 10 },
-//   { year: 2011, count: 20 },
-//   { year: 2012, count: 15 },
-//   { year: 2013, count: 25 },
-//   { year: 2014, count: 22 },
-//   { year: 2015, count: 30 },
-//   { year: 2016, count: 28 },
-// ];
 
-// new Chart(ctx, {
-//   type: 'scatter',
-//   data: {
-//     labels: data.map(row => row.year),
-//     datasets: [
-//       {
-//         label: 'Acquisitions by year',
-//         data: data.map(row => row.count)
-//       }
-//     ]
-//   }
-// });
+ new Chart(ctx, {
+   type: 'line', //'scatter','bar',doughnut,line
+   data: {
+     labels: data.map(row => row.año),
+     datasets: [
+       {
+         label: 'Escuchas por año',
+         data: data.map(row => row.escuchas)
+       }
+     ]
+   }
+ });
