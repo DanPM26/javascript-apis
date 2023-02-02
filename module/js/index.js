@@ -10,8 +10,6 @@
      const max = data.forecast.daily.o3.map((x) => x.max)
      o3 = max
      console.log(max)
-
-   
  
   }
    
@@ -46,4 +44,54 @@
     }
 
 
+    const display2chart = async() => {
+      const ctx2 = document.getElementById('myChart2');
+      await getiaqui()
+
+      new Chart(ctx2, {
+       type: 'doughnut',
+       data: {
+         labels: day,
+         datasets: [{
+           label: 'Calidad del aire maximo',
+           data: o3,
+           borderWidth: 1
+         }]
+       },
+       options: {
+         scales: {
+           y: {
+             beginAtZero: true
+           }
+         }
+       }
+     });
+  }
+
+
+  const display3chart = async() => {
+    const ctx3 = document.getElementById('myChart3');
+    await getiaqui()
+
+    new Chart(ctx3, {
+     type: 'line',
+     data: {
+       labels: day,
+       datasets: [{
+         label: 'Calidad del aire maximo',
+         data: o3,
+         borderWidth: 1
+       }]
+     },
+     options: {
+       scales: {
+         y: {
+           beginAtZero: true
+         }
+       }
+     }
+   });
+}
     displaychart()
+    display2chart()
+    display3chart()
