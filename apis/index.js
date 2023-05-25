@@ -17,7 +17,40 @@
 //         `
 //     });
 // }
+//-------------------Fetch con botón de actualización --------------------
+  /// 
+//   function Api() {
+//     const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+//     fetch(url)
+//       .then(response => response.json())
+//       .then(result => {
+//         console.log(result);
+//         render(result.drinks);
+//       })
+//       .catch(err => console.log(err));
+//   }
 
+//   function render(data) {
+//     let elementDiv = document.getElementById('element');
+//     elementDiv.innerHTML = ''; // Limpiar contenido existente
+
+//     data.forEach(element => {
+//       let el = document.createElement('div');
+//       el.innerHTML = `
+//         <p>${element.strDrink}</p>
+//         <img src="${element.strDrinkThumb}">
+//       `;
+//       elementDiv.appendChild(el);
+//     });
+//   }
+
+//   // Agregar manejador de eventos al botón de refrescar
+//   document.getElementById('refreshButton').addEventListener('click', () => {
+//     Api();
+//   });
+
+//   // Llamar a la función Api() al cargar la página
+//   Api();
 //--------------async/await-----------------
 // const getgames = async() =>{
 //     const response = await fetch('https://www.amiiboapi.com/api/amiibo/?character=zelda&showusage')
