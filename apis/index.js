@@ -40,57 +40,63 @@
 
 
 //---------------fetch-(method)---------------
-//https://ponyweb.ml/#character 
-// const url = "https://ponyweb.ml/v1/character/all"
-// const options = {
-//     method: "GET",
-//     // headers: {
-//     // 'Content-Type': 'application/json',
-//     // }
-//     // body: JSON.stringify(update),
-//     };
-   
-//     fetch(url, options)
-//     .then(response => response.json())
-//     .then(result =>{
-//         console.log(result)
-//          render(result.data)
-//     })
-//     .catch((err) => console.log(err))
 
-//   const render = (data) =>{
-//        data.forEach(element => {
-//            let el = document.getElementById('element')
-//            el.innerHTML += `
-//            <p>${element.name}</p>
-//            <img src="${element.image}">
-//            `
-//        });
-//    }
+ const url = "https://www.amiiboapi.com/api/amiibo/?character=zelda&showusage"
+ const options = {
+     method: "GET",
+      headers: {
+      'Content-Type': 'application/json',
+      }
+     // body: JSON.stringify(update),
+     };
+ 
+     fetch(url, options)
+     .then(response => response.json())
+     .then(result =>{
+         console.log(result.amiibo)
+       render(result.amiibo)
+     })
+     .catch((err) => console.log(err))
+
+   const render = (amiibo) =>{
+        amiibo.forEach(element => {
+            let el = document.getElementById('element')
+            el.innerHTML += `
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${element.image}">
+            <div class="card-body">
+            <h5 class="card-title" >${element.name}</h5>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+
+            </div>
+            `
+        });
+    }
 
 //--------------axios-----------------
 // https://dinosaur-facts-api.shultzlab.com/dinosaurs 
- const getinfo = async() =>{
-    const respuesta = await axios
-    .get('https://dinosaur-facts-api.shultzlab.com/dinosaurs')
-    .then((response) => {
-     console.log(response.data)
-     render(response.data)
-    }
-    )
-    .catch((err)=> console.log(err))
- }
-  const render = (data) => {
-      data.forEach(element => {
-          let lista = document.getElementById('list')
-          lista.innerHTML += `
-          <p>${element.Name} </p>
-          <p>${element.Description} </p>
-          `
-      });
-  }
+//  const getinfo = async() =>{
+//     const respuesta = await axios
+//     .get('https://dinosaur-facts-api.shultzlab.com/dinosaurs')
+//     .then((response) => {
+//      console.log(response.data)
+//      render(response.data)
+//     }
+//     )
+//     .catch((err)=> console.log(err))
+//  }
+//   const render = (data) => {
+//       data.forEach(element => {
+//           let lista = document.getElementById('list')
+//           lista.innerHTML += `
+//           <p>${element.Name} </p>
+//           <p>${element.Description} </p>
+//           `
+//       });
+//   }
 
- getinfo()
+//  getinfo()
 
 
 //---------------Ejercicio----------------
